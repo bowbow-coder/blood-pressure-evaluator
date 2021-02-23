@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>血壓小幫手</title>
+
+  <!-- Bootstrap 的東西 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+    crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" type="text/css" href="css/homepage.css">
+</head>
+
+<body>
+  <div class="container">
+    <div id="input-row" class="row justify-content-center">
+      <div class="w-75 input-group">
+        <!-- 收縮壓文字輸入框 -->
+        <span class="input-group-text" id="inputGroup-sizing-default">收縮壓</span>
+        <input id="user_systolic" type="number" class="form-control input-form-rounded" placeholder="請輸入收縮壓">
+      </div>
+    </div>
+
+    <div id="input-row" class="row justify-content-center">
+      <div class="w-75 input-group">
+        <!-- 舒張壓文字輸入框 -->
+        <span class="input-group-text" id="inputGroup-sizing-default">舒張壓</span>
+        <input id="user_diastolic" type="number" class="form-control input-form-rounded" placeholder="請輸入舒張壓">
+      </div>
+    </div>
+
+    <!-- 計算按鈕 -->
+    <div class="row justify-content-center">
+      <input id="submit-button" type="submit" class="col-5 btn btn-outline-secondary button-form-rounded" alt="Submit Form" value="確認"/>
+    </div>
+
+    <div id="predict_result" class="row justify-content-center search_result_row">
+      <div class="col-9">
+        <div class="card">
+          <div class="card-header">
+            <h4 id="pressure_result">血壓判斷結果：</h4>
+          </div>
+
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <span id="pressure_remind" style="font-size: 20px;">溫馨提醒:</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+    <div id="predict_result" class="row justify-content-center search_result_row">
+      <div class="col-9">
+        <div class="card">
+          <div class="card-header">
+            <h4>衛教資料</h4>
+          </div>
+
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <span style="font-size: 20px;">
+                <ul>
+                  <li>按時產檢測量血壓及檢查尿蛋白。</li>
+                  <li>避免吃太鹹的食物或含鈉高食物，減少水腫之危險，如:醃製物、罐頭加工食品等。</li>
+                  <li>採高蛋白飲食，以補充在尿中流失的蛋白質，如:肉類、豆類、牛奶、蛋。</li>
+                  <li>控制體重。</li>
+                </ul>
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    document.getElementById('submit-button').onclick = function () {
+      var usr_systolic = parseFloat(document.getElementById('user_systolic').value); // 收縮壓
+      var usr_diastolic = parseFloat(document.getElementById('user_diastolic').value); // 舒張壓
+
+      if (((usr_systolic <= 0) || (usr_diastolic <= 0))) {
+        document.getElementById('pressure_result').innerHTML = "輸入異常";
+        document.getElementById('pressure_remind').innerHTML = "請重新輸入收縮壓及舒張壓";
+
+      } else if (((usr_systolic >= 160) || (usr_diastolic >= 110))) {
+        document.getElementById('pressure_result').innerHTML = "血壓判斷結果：異常";
+        document.getElementById('pressure_remind').innerHTML = "溫馨提醒：若有以下狀況：頭痛、視力模糊、胃痛或右上腹痛、劇烈噁心、嘔吐、水腫、尿量減少、呼吸困難，請立即返診。";
+
+      } else if (((usr_systolic >= 140) || (usr_diastolic >= 90))) {
+        document.getElementById('pressure_result').innerHTML = "血壓判斷結果：異常";
+        document.getElementById('pressure_remind').innerHTML = "溫馨提醒：建議您按時自行監測血壓，並做記錄及注意胎動，有異常時就應提早就醫";
+
+      } else {
+        document.getElementById('pressure_result').innerHTML = "血壓判斷結果：正常";
+        document.getElementById('pressure_remind').innerHTML = "溫馨提醒：按時產檢，保持情緒穩定。 ";
+      }
+    }   
+  </script>
+</body>
+
+</html>

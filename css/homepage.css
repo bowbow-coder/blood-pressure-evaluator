@@ -1,0 +1,28 @@
+#input-row {
+  margin-top: 50px;
+}
+
+.input-form-rounded {
+  border-radius: 0 10rem 10rem 0;
+  /* border-right: none; */
+  border-width: 3px;
+  /* height: 8vh; */
+  font-size: 20px;
+}
+
+.input-group-text {
+  border-radius: 10rem 0 0 10rem;
+  border-width: 3px;
+  font-size: 20px;
+}
+
+#submit-button {
+  margin-top: 30px;
+  /* height: 8vh; */
+  font-size: 25px;
+}
+
+#predict_result {
+  margin-top: 60px;
+  margin-bottom: 100px;
+}
