@@ -68,10 +68,12 @@
             <li class="list-group-item">
               <span style="font-size: 20px;">
                 <ul>
-                  <li>按時產檢測量血壓及檢查尿蛋白。</li>
+                  <li>按時產檢。</li>
+                  <li>控制體重。</li>
+                  <li>注意胎動。</li>
+                  <li>按時測量血壓並紀錄血壓變化。</li>
                   <li>避免吃太鹹的食物或含鈉高食物，減少水腫之危險，如:醃製物、罐頭加工食品等。</li>
                   <li>採高蛋白飲食，以補充在尿中流失的蛋白質，如:肉類、豆類、牛奶、蛋。</li>
-                  <li>控制體重。</li>
                 </ul>
               </span>
             </li>
@@ -92,7 +94,7 @@
 
       } else if (((usr_systolic >= 160) || (usr_diastolic >= 110))) {
         document.getElementById('pressure_result').innerHTML = "血壓判斷結果：異常";
-        document.getElementById('pressure_remind').innerHTML = "溫馨提醒：若有以下狀況：頭痛、視力模糊、胃痛或右上腹痛、劇烈噁心、嘔吐、水腫、尿量減少、呼吸困難，請立即返診。";
+        document.getElementById('pressure_remind').innerHTML = "溫馨提醒：宜盡速返診。<br>若併有以下狀況：頭痛、視力模糊、胃痛或右上腹痛、劇烈噁心、嘔吐、水腫、尿量減少、呼吸困難，請立即就醫。";
 
       } else if (((usr_systolic >= 140) || (usr_diastolic >= 90))) {
         document.getElementById('pressure_result').innerHTML = "血壓判斷結果：異常";
