@@ -67,7 +67,7 @@
           <ul class="list-group list-group-flush">
             <li class="list-group-item">
               <span style="font-size: 20px;">
-                <ul>
+                <ul id='health_infor'>
                   <li>按時產檢。</li>
                   <li>控制體重。</li>
                   <li>注意胎動。</li>
@@ -88,21 +88,45 @@
       var usr_systolic = parseFloat(document.getElementById('user_systolic').value); // 收縮壓
       var usr_diastolic = parseFloat(document.getElementById('user_diastolic').value); // 舒張壓
 
-      if (((usr_systolic <= 0) || (usr_diastolic <= 0))) {
-        document.getElementById('pressure_result').innerHTML = "輸入異常";
-        document.getElementById('pressure_remind').innerHTML = "請重新輸入收縮壓及舒張壓";
-
+      if (((usr_systolic <= 90) || (usr_diastolic <= 60))) {
+        document.getElementById('pressure_result').innerHTML = "血壓判斷結果:可能有低血壓";
+        document.getElementById('pressure_remind').innerHTML = "溫馨提醒:有低血壓的孕婦，行動放慢，避免長時間保持同姿勢以及易造成暈眩的動作，儘可能多休息，出現嚴重頭暈時應盡速就醫。";
+        document.getElementById('health_infor').innerHTML = "<li>按時產檢。</li>" + 
+                    "<li>控制體重。</li>" + 
+                    "<li>注意胎動。</li>" +
+                    "<li>充分休息睡眠。</li>" + 
+                    "<li>按時測量血壓並紀錄血壓變化。</li>"; 
+          
       } else if (((usr_systolic >= 160) || (usr_diastolic >= 110))) {
         document.getElementById('pressure_result').innerHTML = "血壓判斷結果：異常";
         document.getElementById('pressure_remind').innerHTML = "溫馨提醒：宜盡速返診。<br>若併有以下狀況：頭痛、視力模糊、胃痛或右上腹痛、劇烈噁心、嘔吐、水腫、尿量減少、呼吸困難，請立即就醫。";
+        document.getElementById('health_infor').innerHTML = "<li>按時產檢。</li>" + 
+                    "<li>控制體重。</li>" + 
+                    "<li>注意胎動。</li>" + 
+                    "<li>按時測量血壓並紀錄血壓變化。</li>" + 
+                    "<li>採高蛋白飲食，以補充在尿中流失的蛋白質，如:肉類、豆類、牛奶、蛋。</li>" + 
+                    "<li>避免吃太鹹的食物或含鈉高食物，減少水腫之危險，如:醃製物、罐頭加工食品等。</li>"; 
 
       } else if (((usr_systolic >= 140) || (usr_diastolic >= 90))) {
         document.getElementById('pressure_result').innerHTML = "血壓判斷結果：異常";
         document.getElementById('pressure_remind').innerHTML = "溫馨提醒：建議您按時自行監測血壓，並做記錄及注意胎動，有異常時就應提早就醫";
+        document.getElementById('health_infor').innerHTML = "<li>按時產檢。</li>" + 
+                    "<li>控制體重。</li>" + 
+                    "<li>注意胎動。</li>" + 
+                    "<li>按時測量血壓並紀錄血壓變化。</li>" + 
+                    "<li>採高蛋白飲食，以補充在尿中流失的蛋白質，如:肉類、豆類、牛奶、蛋。</li>" + 
+                    "<li>避免吃太鹹的食物或含鈉高食物，減少水腫之危險，如:醃製物、罐頭加工食品等。</li>"; 
 
       } else {
         document.getElementById('pressure_result').innerHTML = "血壓判斷結果：正常";
         document.getElementById('pressure_remind').innerHTML = "溫馨提醒：按時產檢，保持情緒穩定。 ";
+        document.getElementById('health_infor').innerHTML = "<li>按時產檢。</li>" + 
+                    "<li>控制體重。</li>" + 
+                    "<li>注意胎動。</li>" + 
+                    "<li>按時測量血壓並紀錄血壓變化。</li>" + 
+                    "<li>採高蛋白飲食，以補充在尿中流失的蛋白質，如:肉類、豆類、牛奶、蛋。</li>" + 
+                    "<li>避免吃太鹹的食物或含鈉高食物，減少水腫之危險，如:醃製物、罐頭加工食品等。</li>"; 
+
       }
     }   
   </script>
